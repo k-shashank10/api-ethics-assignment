@@ -43,6 +43,7 @@ Why: Notes may contain sensitive information
 
 **Correction:**
 clean_records = anonymize(records)   # (remove names, emails, etc.)
+
 save_to_database(clean_records, retention_days=30)
 
 
