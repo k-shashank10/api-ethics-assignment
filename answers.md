@@ -1,6 +1,6 @@
 
 
-**Task 1 — Classify and Handle PII Fields** 
+# **Task 1 — Classify and Handle PII Fields** 
 
 **Field**                  
 1. full_name,  
@@ -24,19 +24,24 @@ Why: Notes may contain sensitive information
 
 
 
-**Task 2 — Audit the API Script for Ethical Compliance** 
+# **Task 2 — Audit the API Script for Ethical Compliance** 
 
 
 1. **Violation 1: Using a free tier API key for bulk/commercial use**
+
 **Problem:** The script uses a free tier key (free_tier_key_abc123) but collects 100 pages of patient records. Free tiers are meant for testing, not large‑scale or commercial use.
+
 **Fix**: Use a proper commercial API key.
-# Correction: API_KEY = "commercial_tier_key_xyz789"
+
+**Correction:** API_KEY = "commercial_tier_key_xyz789"
 
 2. **Violation 2: Permanently storing raw patient‑level records.**
 
 **Problem:** The script saves all records permanently, which violates ethical rules and likely the API’s terms of service. Sensitive health data should not be stored forever.
+
 **Fix:** Store only anonymized or aggregated data, and respect retention limits.
-# Correction:
+
+**Correction:**
 clean_records = anonymize(records)   # (remove names, emails, etc.)
 save_to_database(clean_records, retention_days=30)
 
